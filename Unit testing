@@ -36,8 +36,5 @@ class TestRewardValue(unittest.TestCase):
         with self.assertRaises(ValueError):
             result = reward_value.calculate_reward()
 
-    # Add more test cases for specific scenarios, if applicable.
-
-if __name__ == '__main__':
-    unittest.main()
+   
 
