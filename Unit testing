@@ -1,1 +1,43 @@
+import unittest
+
+class TestRewardValue(unittest.TestCase):
+    def test_calculate_reward_positive(self):
+        reward_value = RewardValue()
+        result = reward_value.calculate_reward(10)
+        self.assertEqual(result, 10)
+
+    def test_calculate_reward_negative(self):
+        reward_value = RewardValue()
+        result = reward_value.calculate_reward(-5)
+        self.assertEqual(result, -5)
+
+    def test_calculate_reward_zero(self):
+        reward_value = RewardValue()
+        result = reward_value.calculate_reward(0)
+        self.assertEqual(result, 0)
+
+    def test_calculate_reward_large_value(self):
+        reward_value = RewardValue()
+        result = reward_value.calculate_reward(1000000)
+        self.assertEqual(result, 1000000)
+
+    def test_calculate_reward_small_value(self):
+        reward_value = RewardValue()
+        result = reward_value.calculate_reward(0.001)
+        self.assertAlmostEqual(result, 0.001, places=3)  # Using places=3 for approximate comparison
+
+    def test_calculate_reward_null_input(self):
+        reward_value = RewardValue()
+        with self.assertRaises(ValueError):
+            result = reward_value.calculate_reward(None)
+
+    def test_calculate_reward_empty_input(self):
+        reward_value = RewardValue()
+        with self.assertRaises(ValueError):
+            result = reward_value.calculate_reward()
+
+    # Add more test cases for specific scenarios, if applicable.
+
+if __name__ == '__main__':
+    unittest.main()
 
